@@ -16,7 +16,7 @@ setlocale(LC_ALL, "Portuguese");
 	while(1){
 		printf("\nBem-vindo ao Mercado Simulado de Ações\n");
 		printf("\n1 - Listar ofertas\n");
-		printf("\n2 - Inserir ofertas\n");
+		printf("\n2 - Incluir ofertas\n");
 		printf("\n3 - Negociar ofertas\n");
 		printf("\n4 - Sair\n");
 		
