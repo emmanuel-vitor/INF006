@@ -10,6 +10,7 @@ struct Venda *cabecoteVenda = NULL;
 int menu(){
 
 setlocale(LC_ALL,"Portuguese_Brasil.1252");
+  
 	int op;
 
 	while(1){
@@ -737,7 +738,7 @@ void finalizar(){
 }
 
 
-//COMPRAS
+
 void carregarArquivoDeCompras(){
 
 	int papel;
@@ -755,8 +756,6 @@ void carregarArquivoDeCompras(){
 
     while (fscanf(file, "%d %d %f", &papel, &acoes, &preco) != EOF ){
 
-  // printf("%d %d %.2f \n", papel, acoes, preco);
-
     	popularListaDeCompras(papel, acoes, preco);
 
     }
@@ -767,27 +766,27 @@ void carregarArquivoDeCompras(){
 
 void popularListaDeCompras(int papel, int acoes, float preco){
 
-	struct Compra* temp = (struct Compra*) malloc(sizeof(struct Compra));
-
+	struct Compra* temp = (struct Compra*) malloc(sizeof(struct Compra));//alocação de memoria para temp
+ //atribui valores
 	temp->papelCompra = papel;
 	temp->acoesCompra = acoes;
 	temp->precoCompra = preco;
 	temp->proximaCompra = NULL;
 
 	struct Compra *atual = cabecoteCompra, *indice = NULL;
-
+// ordenação
 	int swap;
 	float swap_f;
+// verificação se é o primeiro valor, caso seja null  cabeçote aponta para ca
+  
 
 	if (cabecoteCompra == NULL){
 		cabecoteCompra = temp;
 		return;
 
 	}else{
-
+// caso não fazemos a ordenação 
 		while(atual != NULL) {
-		//O nó atual vai apontar para o cabeçote
-
 			indice = atual->proximaCompra;
 
 			while(indice != NULL) {
@@ -823,7 +822,7 @@ void popularListaDeCompras(int papel, int acoes, float preco){
 	    return;
 }
 
-//COMPRAS
+
 
 
 void addCompra(){
@@ -866,7 +865,7 @@ void addCompra(){
 
 		temp->papelCompra = escolha;
 
-	}
+	}finalizar
 
 	printf("Qual o preço de compra das ações?\n");
 	scanf("%f",&temp->precoCompra);
@@ -1014,7 +1013,7 @@ void buscarArquivosDeCompra(){
    menu();
 }
 
-//VENDAS
+
 void carregarArquivoDeVendas()
 {
 	int papel;
@@ -1031,8 +1030,6 @@ void carregarArquivoDeVendas()
 
 
     while (fscanf(file, "%d %d %f", &papel, &acoes, &preco) != EOF ){
-
-  // printf("%d %d %.2f \n", papel, acoes, preco);
 
     	popularListaDeVendas(papel, acoes, preco);
 
@@ -1131,7 +1128,6 @@ void addVenda(){
 		printf("\n3 - USIM5");
 		printf("\n4 - Voltar");
 		scanf("%d", &escolha);
-
 
 	}
 
